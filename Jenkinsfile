@@ -1,5 +1,8 @@
 pipeline {
     agent { docker { image 'maven:latest' } }
+	options { 
+		buildDiscarder(logRotator(daysToKeepStr: '1', numToKeepStr: '5', artifactDaysToKeepStr: '2', artifactNumToKeepStr: '1')) 
+	}
     stages {
         stage('env info') {
             steps {
