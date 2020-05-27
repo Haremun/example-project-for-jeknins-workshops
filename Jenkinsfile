@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('env info') {
             steps {
+				mvn --version
                 sh 'java --version'
             }
         }
